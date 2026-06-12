@@ -25,7 +25,7 @@
   }
   html,body { height:100%; background:var(--bg); color:var(--text); font-family:var(--font); font-size:15px; line-height:1.5; -webkit-font-smoothing:antialiased; }
   #app { display:flex; flex-direction:column; height:100vh; max-width:480px; margin:0 auto; position:relative; overflow:hidden; }
-
+ 
   .topnav { height:var(--nav-h); display:flex; align-items:center; padding:0 20px; border-bottom:1px solid var(--border); background:var(--bg); flex-shrink:0; z-index:10; }
   .topnav-title { font-size:16px; font-weight:600; flex:1; }
   .topnav-sub { font-size:12px; color:var(--text2); }
@@ -40,7 +40,7 @@
   .nav-icon { font-size:20px; color:var(--text3); transition:color .15s; }
   .nav-label { font-size:10px; color:var(--text3); font-weight:500; transition:color .15s; }
   .nav-item.active .nav-icon, .nav-item.active .nav-label { color:var(--accent2); }
-
+ 
   .card { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:16px; margin-bottom:12px; }
   .card-sm { background:var(--bg3); border:1px solid var(--border); border-radius:var(--radius-sm); padding:12px 14px; }
   .kpi-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
@@ -51,7 +51,7 @@
   .section-hdr { font-size:11px; font-weight:600; color:var(--text3); text-transform:uppercase; letter-spacing:.07em; margin:20px 0 10px; }
   .prog-wrap { background:var(--bg4); border-radius:4px; height:5px; overflow:hidden; flex:1; }
   .prog-bar { height:100%; border-radius:4px; transition:width .5s cubic-bezier(.4,0,.2,1); }
-
+ 
   .cat-row { display:flex; align-items:center; gap:10px; padding:11px 0; border-bottom:1px solid var(--border); }
   .cat-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
   .cat-name { font-size:13px; font-weight:500; min-width:80px; }
@@ -62,7 +62,7 @@
   .pill-ok { background:var(--green-dim); color:var(--green); }
   .pill-warn { background:var(--amber-dim); color:var(--amber); }
   .pill-over { background:var(--red-dim); color:var(--red); }
-
+ 
   .form-group { margin-bottom:14px; }
   .form-label { font-size:12px; font-weight:500; color:var(--text2); margin-bottom:6px; display:block; }
   .form-label .req { color:var(--red); }
@@ -84,10 +84,10 @@
   .btn-icon:hover { background:var(--bg4); color:var(--text); }
   .btn-add { display:flex; align-items:center; gap:6px; padding:8px 12px; background:var(--accent-dim); color:var(--accent2); border:1px dashed rgba(108,99,255,0.35); border-radius:var(--radius-sm); font-family:var(--font); font-size:13px; cursor:pointer; width:100%; transition:background .15s; margin-top:8px; }
   .btn-add:hover { background:rgba(108,99,255,0.22); }
-
+ 
   .toast { position:fixed; bottom:calc(var(--bottom-h)+16px); left:50%; transform:translateX(-50%) translateY(20px); background:var(--green); color:#fff; font-size:13px; font-weight:500; padding:10px 18px; border-radius:30px; opacity:0; transition:all .3s; pointer-events:none; z-index:999; white-space:nowrap; }
   .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
-
+ 
   .exp-item { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--border); cursor:pointer; transition:background .1s; }
   .exp-item:hover { background:rgba(255,255,255,0.02); margin:0 -4px; padding:12px 4px; border-radius:var(--radius-sm); }
   .exp-icon { width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0; }
@@ -98,7 +98,7 @@
   .exp-monto { font-size:14px; font-weight:600; font-family:var(--mono); }
   .exp-quien { font-size:10px; padding:2px 7px; border-radius:20px; margin-top:3px; display:inline-block; font-weight:500; }
   .historical-badge { font-size:9px; padding:1px 5px; border-radius:10px; background:var(--bg4); color:var(--text3); margin-left:4px; vertical-align:middle; }
-
+ 
   .balance-person { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
   .avatar { width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:600; flex-shrink:0; }
   .av-m { background:var(--martu-dim); color:var(--martu); border:1px solid rgba(167,139,250,0.25); }
@@ -111,7 +111,7 @@
   .deuda-label { font-size:12px; color:var(--text2); margin-bottom:8px; text-transform:uppercase; letter-spacing:.05em; }
   .deuda-monto { font-size:28px; font-weight:600; font-family:var(--mono); margin-bottom:4px; }
   .deuda-desc { font-size:12px; color:var(--text2); }
-
+ 
   .month-sel { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
   .bud-hdr { display:flex; gap:8px; padding:0 0 8px; border-bottom:1px solid var(--border); margin-bottom:2px; }
   .bud-hdr span { font-size:10px; font-weight:600; color:var(--text3); text-transform:uppercase; letter-spacing:.05em; }
@@ -121,7 +121,7 @@
   .bud-p { min-width:68px; text-align:right; font-size:12px; font-family:var(--mono); color:var(--text2); }
   .bud-r { min-width:68px; text-align:right; font-size:12px; font-family:var(--mono); font-weight:500; }
   .bud-a { min-width:50px; text-align:right; }
-
+ 
   /* CONFIG */
   .cfg-section { margin-bottom:28px; }
   .cfg-section-title { font-size:13px; font-weight:600; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
@@ -165,7 +165,7 @@
   .amor-cmp-hdr { font-size:10px; font-weight:600; color:var(--text3); text-transform:uppercase; letter-spacing:.05em; }
   .divider { border:none; border-top:1px solid var(--border); margin:16px 0; }
   .pct-preview-bar { display:flex; height:8px; border-radius:4px; overflow:hidden; margin-top:8px; }
-
+ 
   .filter-bar { display:flex; gap:8px; overflow-x:auto; margin-bottom:14px; padding-bottom:4px; scrollbar-width:none; }
   .filter-bar::-webkit-scrollbar { display:none; }
   .filter-chip { white-space:nowrap; padding:5px 12px; border-radius:20px; font-size:12px; font-weight:500; border:1px solid var(--border); background:var(--bg3); color:var(--text2); cursor:pointer; transition:all .15s; flex-shrink:0; }
@@ -180,7 +180,7 @@
   .main::-webkit-scrollbar { width:4px; }
   .main::-webkit-scrollbar-track { background:transparent; }
   .main::-webkit-scrollbar-thumb { background:var(--bg4); border-radius:4px; }
-
+ 
   /* MODAL */
   .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px); z-index:100; display:flex; align-items:flex-end; opacity:0; pointer-events:none; transition:opacity .2s; }
   .modal-overlay.open { opacity:1; pointer-events:all; }
@@ -198,7 +198,7 @@
 </head>
 <body>
 <div id="app">
-
+ 
   <div class="topnav">
     <div style="flex:1">
       <div class="topnav-title">Gastos Saladillo</div>
@@ -206,9 +206,9 @@
     </div>
     <div class="topnav-badge" onclick="showScreen('config')">⚙ Config</div>
   </div>
-
+ 
   <div class="main" id="main">
-
+ 
     <!-- PANEL -->
     <div class="screen active" id="screen-panel">
       <div class="kpi-grid" id="kpi-grid"></div>
@@ -216,7 +216,7 @@
       <div class="section-hdr">Categorías del mes</div>
       <div id="cat-rows"></div>
     </div>
-
+ 
     <!-- CARGAR -->
     <div class="screen" id="screen-cargar">
       <div class="section-hdr" style="margin-top:4px">Nuevo gasto</div>
@@ -265,13 +265,13 @@
       </div>
       <button class="btn-primary" onclick="guardarGasto()">Guardar gasto</button>
     </div>
-
+ 
     <!-- REGISTRO -->
     <div class="screen" id="screen-registro">
       <div class="filter-bar" id="reg-filters"></div>
       <div id="exp-list"></div>
     </div>
-
+ 
     <!-- PRESUPUESTO -->
     <div class="screen" id="screen-presupuesto">
       <div class="month-sel" id="bud-month-sel"></div>
@@ -284,7 +284,7 @@
       </div>
       <div id="bud-rows"></div>
     </div>
-
+ 
     <!-- APORTES -->
     <div class="screen" id="screen-aportes">
       <div class="section-hdr" style="margin-top:4px">Balance del mes activo</div>
@@ -295,11 +295,11 @@
       <div class="section-hdr">Distribución proporcional</div>
       <div id="dist-section"></div>
     </div>
-
+ 
     <!-- CONFIG -->
     <div class="screen" id="screen-config">
       <div class="section-hdr" style="margin-top:4px">Configuración</div>
-
+ 
       <!-- SYNC -->
       <div class="cfg-section">
         <div class="cfg-section-title">🔄 <span>Sincronización con Google Sheets</span></div>
@@ -311,7 +311,7 @@
         </button>
         <div id="sync-status" style="font-size:12px;margin-top:8px;text-align:center"></div>
       </div>
-
+ 
       <div class="cfg-section">
         <div class="cfg-section-title">📅 <span>Mes y día activo</span></div>
         <div class="cfg-row">
@@ -327,7 +327,7 @@
           <input type="number" id="cfg-dia" min="1" max="31" class="cfg-input" style="width:70px;text-align:center" onchange="onCfgDiaChange()">
         </div>
       </div>
-
+ 
       <div class="cfg-section">
         <div class="cfg-section-title">💼 <span>Ingresos mensuales</span></div>
         <div class="cfg-month-tabs" id="ing-month-tabs"></div>
@@ -341,14 +341,14 @@
         <div id="ing-pct-preview" style="margin-top:14px"></div>
         <button class="btn-primary" style="margin-top:12px" onclick="saveIngresos()">Guardar ingresos</button>
       </div>
-
+ 
       <div class="cfg-section">
         <div class="cfg-section-title">📊 <span>Presupuesto por categoría</span></div>
         <div class="cfg-month-tabs" id="bud-cfg-tabs"></div>
         <div id="bud-cfg-rows"></div>
         <button class="btn-primary" style="margin-top:12px" onclick="saveBudget()">Guardar presupuesto</button>
       </div>
-
+ 
       <div class="cfg-section">
         <div class="cfg-section-title">📌 <span>Gastos fijos personales</span></div>
         <div style="font-size:12px;color:var(--text2);margin-bottom:12px">Informativos — no se comparten ni afectan el balance.</div>
@@ -361,7 +361,7 @@
         <button class="btn-add" onclick="addFijo('Nacho')">+ Agregar gasto fijo</button>
         <button class="btn-primary" style="margin-top:16px" onclick="saveFijos()">Guardar gastos fijos</button>
       </div>
-
+ 
       <!-- EXPORTAR -->
       <div class="cfg-section">
         <div class="cfg-section-title">📤 <span>Exportar datos</span></div>
@@ -379,27 +379,27 @@
           </button>
         </div>
       </div>
-
+ 
     </div><!-- /screen-config -->
-
+ 
     <!-- IMPUESTO AL AMOR -->
     <div class="screen" id="screen-amor">
       <div class="section-hdr" style="margin-top:4px">💑 Impuesto al amor · <span id="amor-mes-label"></span></div>
       <div style="font-size:12px;color:var(--text2);margin-bottom:16px;line-height:1.6">
         Equaliza la capacidad de ahorro de ambos, descontando gastos fijos personales y el aporte proporcional a los gastos compartidos.
       </div>
-
+ 
       <!-- Resultado principal -->
       <div id="amor-result-box"></div>
-
+ 
       <!-- Desglose paso a paso -->
       <div class="section-hdr">Desglose del cálculo</div>
       <div id="amor-desglose"></div>
-
+ 
       <!-- Tabla comparativa -->
       <div class="section-hdr">Comparativa de ahorro</div>
       <div id="amor-tabla"></div>
-
+ 
       <!-- Nota explicativa -->
       <div class="card-sm" style="margin-top:16px">
         <div style="font-size:11px;color:var(--text2);line-height:1.7">
@@ -410,9 +410,9 @@
         </div>
       </div>
     </div>
-
+ 
   </div><!-- /main -->
-
+ 
   <div class="bottomnav">
     <div class="nav-item active" id="nav-panel" onclick="showScreen('panel')">
       <div class="nav-icon">⊞</div><div class="nav-label">Panel</div>
@@ -431,9 +431,9 @@
     </div>
   </div>
 </div>
-
+ 
 <div class="toast" id="toast"></div>
-
+ 
 <!-- EDIT MODAL -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
   <div class="modal">
@@ -489,10 +489,10 @@
     </div>
   </div>
 </div>
-
+ 
 <script>
 const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzexccSgUp7bgJEKMmgw4yJvloA4BcNlSPtmGtHZTVRTB_lolwnmxBUUrf2b0FzxE4x/exec';
-
+ 
 async function syncFromSheets() {
   const btn = document.getElementById('sync-btn');
   const status = document.getElementById('sync-status');
@@ -502,10 +502,10 @@ async function syncFromSheets() {
     const res = await fetch(SHEETS_URL);
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const rows = await res.json();
-
+ 
     const MONTHS = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
     const VALID_CATS = new Set(['Vivienda','Comida','Movilidad','Recreación','Malta']);
-
+ 
     const gastos = [];
     let id = 1;
     for (const row of rows) {
@@ -513,7 +513,7 @@ async function syncFromSheets() {
       if (!VALID_CATS.has(cat)) continue;
       const monto = parseFloat(String(row['Monto']||'').replace(/[$.]/g,'').replace(',','.'));
       if (!monto || isNaN(monto)) continue;
-
+ 
       // Parse fecha — may come as serial number, ISO string, or DD/MM/YYYY
       let fecha = '';
       let mes = String(row['Mes']||'').trim();
@@ -532,7 +532,7 @@ async function syncFromSheets() {
         }
       }
       if (!fecha) continue;
-
+ 
       gastos.push({
         id: id++,
         fecha,
@@ -545,28 +545,28 @@ async function syncFromSheets() {
         obs:    String(row['Observaciones']||'').trim(),
       });
     }
-
+ 
     if (gastos.length === 0) throw new Error('No se encontraron gastos válidos en la planilla');
-
+ 
     // Replace state gastos and persist
     state.gastos = gastos;
     state.nextId = gastos.length + 1;
     saveState();
-
+ 
     const now = new Date().toLocaleTimeString('es-AR', {hour:'2-digit', minute:'2-digit'});
     if (btn) { btn.textContent = '🔄 Sincronizar con Google Sheets'; btn.disabled = false; }
     if (status) {
       status.textContent = `✓ ${gastos.length} gastos sincronizados · ${now}`;
       status.style.color = 'var(--green)';
     }
-
+ 
     // Refresh current screen
     if (currentScreen === 'panel') renderPanel();
     if (currentScreen === 'registro') renderRegistro();
     if (currentScreen === 'presupuesto') renderPresupuesto();
     if (currentScreen === 'aportes') renderAportes();
     if (currentScreen === 'amor') renderAmor();
-
+ 
     showToast(`✓ ${gastos.length} gastos sincronizados desde Sheets`);
   } catch(e) {
     console.error(e);
@@ -578,10 +578,10 @@ async function syncFromSheets() {
     showToast('⚠ No se pudo conectar con Sheets', true);
   }
 }
-
-// Auto-sync on load
-window.addEventListener('load', () => { syncFromSheets(); });
-  Vivienda:['Alquiler','Luz','Gas','Tasa municipal','Limpieza','Wifi','Múltiples','Varios'],
+ 
+// Auto-sync on load — moved to end of script after all functions are defined
+ 
+const SUBCATS = {
   Comida:['Supermercado','Verdulería','Carnicería','Otros'],
   Movilidad:['Combustible','Peajes','Mantenimiento'],
   'Recreación':['Salida','Heladería','Kiosko'],
@@ -591,15 +591,15 @@ const CAT_COLOR = {Vivienda:'#6C63FF',Comida:'#22C98B',Movilidad:'#F5A623','Recr
 const CAT_EMOJI = {Vivienda:'🏠',Comida:'🛒',Movilidad:'🚗','Recreación':'🎉',Malta:'🐕'};
 const MONTHS = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 const DIAS_MES = {Enero:31,Febrero:28,Marzo:31,Abril:30,Mayo:31,Junio:30,Julio:31,Agosto:31,Septiembre:30,Octubre:31,Noviembre:30,Diciembre:31};
-
+ 
 const DEFAULT_INGRESOS = {"Enero": {"Martu": [{"fuente": "ONG", "monto": 2060000}, {"fuente": "Obra social", "monto": 29700}], "Nacho": [{"fuente": "Sueldo básico", "monto": 3093392}, {"fuente": "Carne", "monto": 200000}, {"fuente": "Almacén", "monto": 225000}]}, "Febrero": {"Martu": [{"fuente": "ONG", "monto": 2060000}, {"fuente": "Obra social", "monto": 29700}], "Nacho": [{"fuente": "Sueldo básico", "monto": 3093392}, {"fuente": "Carne", "monto": 200000}, {"fuente": "Almacén", "monto": 225000}]}, "Marzo": {"Martu": [{"fuente": "ONG", "monto": 2060000}, {"fuente": "Obra social", "monto": 29700}], "Nacho": [{"fuente": "Sueldo básico", "monto": 3093392}, {"fuente": "Carne", "monto": 200000}, {"fuente": "Almacén", "monto": 225000}]}, "Abril": {"Martu": [{"fuente": "ONG", "monto": 2060000}, {"fuente": "Obra social", "monto": 29700}], "Nacho": [{"fuente": "Sueldo básico", "monto": 3093392}, {"fuente": "Carne", "monto": 200000}, {"fuente": "Almacén", "monto": 225000}]}, "Mayo": {"Martu": [{"fuente": "ONG", "monto": 2060000}, {"fuente": "Obra social", "monto": 29700}], "Nacho": [{"fuente": "Sueldo básico", "monto": 3093392}, {"fuente": "Carne", "monto": 200000}, {"fuente": "Almacén", "monto": 225000}]}, "Junio": {"Martu": [{"fuente": "ONG", "monto": 2060000}, {"fuente": "Obra social", "monto": 29700}], "Nacho": [{"fuente": "Sueldo básico", "monto": 3093392}, {"fuente": "Carne", "monto": 200000}, {"fuente": "Almacén", "monto": 225000}]}, "Julio": {"Martu": [{"fuente": "ONG", "monto": 2060000}, {"fuente": "Obra social", "monto": 29700}], "Nacho": [{"fuente": "Sueldo básico", "monto": 3093392}, {"fuente": "Carne", "monto": 200000}, {"fuente": "Almacén", "monto": 225000}]}, "Agosto": {"Martu": [{"fuente": "ONG", "monto": 2060000}, {"fuente": "Obra social", "monto": 29700}], "Nacho": [{"fuente": "Sueldo básico", "monto": 3093392}, {"fuente": "Carne", "monto": 200000}, {"fuente": "Almacén", "monto": 225000}]}, "Septiembre": {"Martu": [{"fuente": "ONG", "monto": 2060000}, {"fuente": "Obra social", "monto": 29700}], "Nacho": [{"fuente": "Sueldo básico", "monto": 3093392}, {"fuente": "Carne", "monto": 200000}, {"fuente": "Almacén", "monto": 225000}]}, "Octubre": {"Martu": [{"fuente": "ONG", "monto": 2060000}, {"fuente": "Obra social", "monto": 29700}], "Nacho": [{"fuente": "Sueldo básico", "monto": 3093392}, {"fuente": "Carne", "monto": 200000}, {"fuente": "Almacén", "monto": 225000}]}, "Noviembre": {"Martu": [{"fuente": "ONG", "monto": 2060000}, {"fuente": "Obra social", "monto": 29700}], "Nacho": [{"fuente": "Sueldo básico", "monto": 3093392}, {"fuente": "Carne", "monto": 200000}, {"fuente": "Almacén", "monto": 225000}]}, "Diciembre": {"Martu": [{"fuente": "ONG", "monto": 2060000}, {"fuente": "Obra social", "monto": 29700}], "Nacho": [{"fuente": "Sueldo básico", "monto": 3093392}, {"fuente": "Carne", "monto": 200000}, {"fuente": "Almacén", "monto": 225000}]}};
-
+ 
 const DEFAULT_BUDGET = {"Enero": {"Vivienda": {"Alquiler": 600000, "Luz": 60000, "Gas": 24000, "Tasa municipal": 19050, "Limpieza": 80000, "Wifi": 35603, "Varios": 300000}, "Comida": {"Supermercado": 450000, "Verdulería": 100000, "Carnicería": 400000}, "Movilidad": {"Combustible": 100000, "Peajes": 30000, "Mantenimiento": 100000}, "Recreación": {"Kiosko": 50000, "Heladería": 50000, "Salida": 100000}}, "Febrero": {"Vivienda": {"Alquiler": 600000, "Luz": 80967, "Gas": 4462, "Tasa municipal": 19095, "Limpieza": 80000, "Wifi": 35603, "Múltiples": 100000}, "Comida": {"Supermercado": 550000, "Verdulería": 120000, "Carnicería": 200000, "Otros": 100000}, "Movilidad": {"Combustible": 200000, "Peajes": 30000, "Mantenimiento": 50000}, "Recreación": {"Kiosko": 20000, "Heladería": 30000, "Salida": 200000}, "Malta": {"Veterinaria": 200000, "Alimento": 200000, "Varios": 100000}}, "Marzo": {"Vivienda": {"Alquiler": 636549, "Luz": 83396, "Gas": 4596, "Limpieza": 82400, "Wifi": 36671, "Múltiples": 51500}, "Comida": {"Supermercado": 515000, "Verdulería": 133900, "Carnicería": 206000, "Otros": 103000}, "Movilidad": {"Combustible": 206000, "Peajes": 30900, "Mantenimiento": 51500}, "Recreación": {"Kiosko": 10300, "Heladería": 41200, "Salida": 103000}, "Malta": {"Veterinaria": 103000, "Alimento": 103000, "Varios": 103000}}, "Abril": {"Vivienda": {"Alquiler": 656501, "Luz": 119451, "Gas": 4596, "Limpieza": 82400, "Wifi": 17632, "Múltiples": 51500}, "Comida": {"Supermercado": 412000, "Verdulería": 103000, "Carnicería": 154500, "Otros": 103000}, "Movilidad": {"Combustible": 103000, "Peajes": 20600, "Mantenimiento": 20600}, "Recreación": {"Kiosko": 10300, "Heladería": 10300, "Salida": 113300}, "Malta": {"Veterinaria": 103000, "Alimento": 30900, "Varios": 30900}}, "Mayo": {"Vivienda": {"Alquiler": 676350, "Luz": 88110, "Gas": 4857, "Limpieza": 80000, "Wifi": 18687, "Múltiples": 50000}, "Comida": {"Supermercado": 309000, "Verdulería": 60440, "Carnicería": 188490, "Otros": 69062}, "Movilidad": {"Combustible": 113300, "Peajes": 7725, "Mantenimiento": 75000}, "Recreación": {"Kiosko": 5871, "Heladería": 10300, "Salida": 150000}, "Malta": {"Veterinaria": 50000, "Alimento": 71997, "Varios": 30000}}};
-
+ 
 const DEFAULT_FIJOS = {"Martu": [{"fuente": "Movistar", "monto": 45140}, {"fuente": "Gimnasio", "monto": 40000}, {"fuente": "Meli+", "monto": 3490}, {"fuente": "Disfrute personal", "monto": 200000}], "Nacho": [{"fuente": "Spotify", "monto": 3332}, {"fuente": "Disney+", "monto": 18400}, {"fuente": "Smiles", "monto": 6000}, {"fuente": "Gimnasio", "monto": 40000}, {"fuente": "Google", "monto": 2800}, {"fuente": "Disfrute personal", "monto": 200000}, {"fuente": "Telecentro", "monto": 168150}, {"fuente": "Volvo", "monto": 103000}]};
-
+ 
 const HISTORICAL = []; // datos cargados desde Google Sheets
-
+ 
 function loadState() {
   try {
     const s = JSON.parse(localStorage.getItem('gastos_sal_v4')||'{}');
@@ -632,13 +632,13 @@ function saveState() {
   }));
 }
 let state = loadState();
-
+ 
 // ─── UTILS ───────────────────────────────────────────────────────────────────
 function fmt(n){ const a=Math.abs(Math.round(n||0)); return (n<0?'−':'')+'$'+a.toLocaleString('es-AR'); }
 function fmtShort(n){ const a=Math.abs(Math.round(n||0)); if(a>=1000000) return (n<0?'−':'')+'$'+(a/1000000).toFixed(1)+'M'; if(a>=1000) return (n<0?'−':'')+'$'+Math.round(a/1000)+'k'; return fmt(n); }
 function pill(r,p){ if(!r) return '<span class="pill" style="background:rgba(255,255,255,0.05);color:var(--text3)">Sin gastos</span>'; if(r>p) return '<span class="pill pill-over">Excedido</span>'; if(r/p>0.85) return '<span class="pill pill-warn">Cerca</span>'; return '<span class="pill pill-ok">OK</span>'; }
 function showToast(msg,err){ const t=document.getElementById('toast'); t.textContent=msg; t.style.background=err?'var(--red)':'var(--green)'; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2800); }
-
+ 
 function gastos$(mes){ return state.gastos.filter(g=>g.mes===mes); }
 function totalMes(mes){ return gastos$(mes).reduce((a,g)=>a+g.monto,0); }
 function totalCat(mes,cat){ return gastos$(mes).filter(g=>g.cat===cat).reduce((a,g)=>a+g.monto,0); }
@@ -650,7 +650,7 @@ function ingTotal(mes,p){ return (state.ingresos[mes]?.[p]||[]).reduce((a,r)=>a+
 function ingConj(mes){ return ingTotal(mes,'Martu')+ingTotal(mes,'Nacho'); }
 function pctM(mes){ const c=ingConj(mes); return c?ingTotal(mes,'Martu')/c:0.5; }
 function pctN(mes){ return 1-pctM(mes); }
-
+ 
 // ─── NAV ─────────────────────────────────────────────────────────────────────
 let currentScreen='panel';
 function showScreen(s){
@@ -663,7 +663,7 @@ function showScreen(s){
   const renders={panel:renderPanel,registro:renderRegistro,presupuesto:renderPresupuesto,aportes:renderAportes,config:renderConfig,amor:renderAmor};
   if(renders[s]) renders[s]();
 }
-
+ 
 // ─── PANEL ───────────────────────────────────────────────────────────────────
 function renderPanel(){
   const mes=state.activeMes, dia=state.dia;
@@ -688,7 +688,7 @@ function renderPanel(){
     el.innerHTML+=`<div class="cat-row"><div class="cat-dot" style="background:${color}"></div><div class="cat-name">${cat}</div><div style="flex:1"><div class="prog-wrap"><div class="prog-bar" style="width:${Math.min(Math.round(pctC*100),100)}%;background:${pctC>1?'var(--red)':pctC>0.85?'var(--amber)':color}"></div></div></div><div class="cat-right"><div class="cat-monto" style="color:${pctC>1?'var(--red)':'var(--text)'}">${fmtShort(r)}</div><div class="cat-presup">de ${fmtShort(p)}</div>${pill(r,p)}</div></div>`;
   });
 }
-
+ 
 // ─── CARGAR ───────────────────────────────────────────────────────────────────
 function onCatChange(catId,subId,pre){
   const cat=document.getElementById(catId).value, sel=document.getElementById(subId);
@@ -708,7 +708,7 @@ function guardarGasto(){
   document.getElementById('f-subcat').innerHTML='<option value="">— primero categoría —</option>';
   showToast('✓ Gasto guardado en '+mes);
 }
-
+ 
 // ─── REGISTRO ────────────────────────────────────────────────────────────────
 function renderRegistro(){
   const f=state.regFilter;
@@ -733,7 +733,7 @@ function renderRegistro(){
     el.appendChild(wrap);
   });
 }
-
+ 
 // ─── PRESUPUESTO ─────────────────────────────────────────────────────────────
 function renderPresupuesto(){
   const meses=Object.keys(state.budget);
@@ -751,7 +751,7 @@ function renderPresupuesto(){
   });
   rows.innerHTML+=`<div class="bud-row" style="border-bottom:none;padding-top:12px"><div class="bud-cat" style="font-weight:600">Total ${mes}</div><div class="bud-sub"></div><div class="bud-p" style="color:var(--text);font-weight:600">${fmtShort(tp)}</div><div class="bud-r" style="color:${tr>tp?'var(--red)':'var(--green)'};font-weight:600">${fmtShort(tr)}</div><div class="bud-a">${pill(tr,tp)}</div></div>`;
 }
-
+ 
 // ─── APORTES ─────────────────────────────────────────────────────────────────
 function renderAportes(){
   const mes=state.activeMes, totalR=totalMes(mes);
@@ -782,30 +782,30 @@ function renderAportes(){
   <div class="card-sm" style="margin-bottom:8px;display:flex;align-items:center;gap:12px"><div class="avatar av-m" style="width:32px;height:32px;font-size:12px">M</div><div style="flex:1"><div style="font-size:13px;font-weight:500">Martu · ${pmr}%</div><div class="prog-wrap" style="margin-top:5px"><div class="prog-bar" style="width:${pmr}%;background:var(--martu)"></div></div></div><div style="font-family:var(--mono);font-size:13px;font-weight:600;color:var(--martu)">${fmt(ingM)}</div></div>
   <div class="card-sm" style="display:flex;align-items:center;gap:12px"><div class="avatar av-n" style="width:32px;height:32px;font-size:12px">N</div><div style="flex:1"><div style="font-size:13px;font-weight:500">Nacho · ${100-pmr}%</div><div class="prog-wrap" style="margin-top:5px"><div class="prog-bar" style="width:${100-pmr}%;background:var(--nacho)"></div></div></div><div style="font-family:var(--mono);font-size:13px;font-weight:600;color:var(--nacho)">${fmt(ingN)}</div></div>`;
 }
-
+ 
 // ─── IMPUESTO AL AMOR ─────────────────────────────────────────────────────────
 function renderAmor() {
   const mes = state.activeMes;
   document.getElementById('amor-mes-label').textContent = mes + ' 2026';
-
+ 
   // Ingresos
   const ingM = ingTotal(mes, 'Martu');
   const ingN = ingTotal(mes, 'Nacho');
-
+ 
   // Gastos fijos personales
   const fijosM = (state.fijos['Martu'] || []).reduce((a, r) => a + (r.monto || 0), 0);
   const fijosN = (state.fijos['Nacho'] || []).reduce((a, r) => a + (r.monto || 0), 0);
-
+ 
   // Gastos compartidos reales del mes y aporte proporcional de cada uno
   const totalComp = totalMes(mes);
   const pm = pctM(mes), pn = pctN(mes);
   const aporteM = totalComp * pm;
   const aporteN = totalComp * pn;
-
+ 
   // Ahorro bruto = Ingreso - Fijos personales - Aporte proporcional
   const ahorroM = ingM - fijosM - aporteM;
   const ahorroN = ingN - fijosN - aporteN;
-
+ 
   // Impuesto = mitad de la diferencia
   const diff = ahorroM - ahorroN;
   const impuesto = Math.abs(diff) / 2;
@@ -814,7 +814,7 @@ function renderAmor() {
   const ahorroFinalM = ahorroM - (diff > 0 ? impuesto : -impuesto);
   const ahorroFinalN = ahorroN - (diff < 0 ? impuesto : -impuesto);
   const equilibrado = Math.abs(diff) < 100;
-
+ 
   // ── Resultado principal ──
   const resultColor = equilibrado ? 'var(--bg3)' : diff > 0 ? 'var(--martu-dim)' : 'var(--nacho-dim)';
   const taxColor    = equilibrado ? 'var(--text2)' : diff > 0 ? 'var(--martu)' : 'var(--nacho)';
@@ -832,7 +832,7 @@ function renderAmor() {
           : `${pagaImpuesto} transfiere ${fmt(impuesto)} a ${recibeImpuesto}<br>→ ambos quedan con ${fmt(Math.round(ahorroFinalM))} de ahorro neto`}
       </div>
     </div>`;
-
+ 
   // ── Desglose paso a paso ──
   const steps = [
     {
@@ -866,7 +866,7 @@ function renderAmor() {
         <div class="amor-step-detail">${s.detail}</div>
       </div>
     </div>`).join('');
-
+ 
   // ── Tabla comparativa ──
   const rows = [
     ['Ingreso mensual',          fmt(ingM),             fmt(ingN)],
@@ -891,7 +891,7 @@ function renderAmor() {
       </div>`).join('')}
     </div>`;
 }
-
+ 
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
 function renderConfig(){
   document.getElementById('cfg-mes-activo').value=state.activeMes;
@@ -900,7 +900,7 @@ function renderConfig(){
 }
 function onCfgMesChange(){ state.activeMes=document.getElementById('cfg-mes-activo').value; state.budMes=state.activeMes; saveState(); showToast('✓ Mes activo: '+state.activeMes); }
 function onCfgDiaChange(){ state.dia=Math.max(1,Math.min(31,parseInt(document.getElementById('cfg-dia').value)||1)); saveState(); }
-
+ 
 // ── Ingresos ──
 function renderIngMeses(){
   const tabs=document.getElementById('ing-month-tabs'); tabs.innerHTML='';
@@ -932,7 +932,7 @@ function updateIngPct(){
   document.getElementById('ing-pct-preview').innerHTML=`<div class="card-sm"><div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--martu);font-size:13px;font-weight:600">Martu ${pm}% · ${fmt(m)}</span><span style="color:var(--nacho);font-size:13px;font-weight:600">${fmt(n)} · ${pn}% Nacho</span></div><div class="pct-preview-bar"><div style="width:${pm}%;background:var(--martu)"></div><div style="flex:1;background:var(--nacho)"></div></div></div>`;
 }
 function saveIngresos(){ saveState(); showToast('✓ Ingresos de '+state.cfgIngMes+' guardados'); if(currentScreen==='aportes') renderAportes(); }
-
+ 
 // ── Presupuesto ──
 function renderBudCfgTabs(){
   const tabs=document.getElementById('bud-cfg-tabs'); tabs.innerHTML='';
@@ -958,7 +958,7 @@ function renderBudCfgRows(){
   });
 }
 function saveBudget(){ saveState(); showToast('✓ Presupuesto de '+state.budMes+' guardado'); if(currentScreen==='presupuesto') renderPresupuesto(); if(currentScreen==='panel') renderPanel(); }
-
+ 
 // ── Gastos fijos ──
 function renderFijosRows(){
   ['Martu','Nacho'].forEach(p=>{
@@ -975,7 +975,7 @@ function renderFijosRows(){
 }
 function addFijo(p){ if(!state.fijos[p]) state.fijos[p]=[]; state.fijos[p].push({fuente:'Nuevo gasto',monto:0}); renderFijosRows(); }
 function saveFijos(){ saveState(); showToast('✓ Gastos fijos guardados'); }
-
+ 
 // ─── MODAL ───────────────────────────────────────────────────────────────────
 let editingId=null;
 function openModal(id){
@@ -1014,15 +1014,15 @@ function eliminarGasto(){
   renderRegistro(); if(currentScreen==='panel') renderPanel();
   showToast('🗑 Gasto eliminado');
 }
-
+ 
 function escHtml(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-
+ 
 // ─── EXPORTAR ────────────────────────────────────────────────────────────────
 function exportarExcel() {
   if(typeof XLSX === 'undefined') { showToast('⚠ Cargando librería, reintentá en 2 seg.', true); return; }
   const wb = XLSX.utils.book_new();
   const fmtN = n => Math.round(n||0);
-
+ 
   // ── Hoja 1: Registro de gastos ──
   const regHeaders = ['Fecha','Mes','Categoría','Subcategoría','Monto ($)','Forma de pago','Quién pagó','Observaciones'];
   const regRows = state.gastos.map(g => [g.fecha, g.mes, g.cat, g.sub, fmtN(g.monto), g.pago, g.quien, g.obs||'']);
@@ -1030,7 +1030,7 @@ function exportarExcel() {
   wsReg['!cols'] = [10,10,12,14,12,13,11,24].map(w=>({wch:w}));
   styleSheet(wsReg, regRows.length+1, regHeaders.length);
   XLSX.utils.book_append_sheet(wb, wsReg, 'Registro');
-
+ 
   // ── Hoja 2: Presupuesto mensual ──
   const budRows = [['Mes','Categoría','Subcategoría','Presupuestado','Gasto real','Diferencia','% uso','Estado']];
   Object.keys(state.budget).forEach(mes => {
@@ -1054,7 +1054,7 @@ function exportarExcel() {
   const wsBud = XLSX.utils.aoa_to_sheet(budRows);
   wsBud['!cols'] = [10,13,16,13,11,11,8,14].map(w=>({wch:w}));
   XLSX.utils.book_append_sheet(wb, wsBud, 'Presupuesto');
-
+ 
   // ── Hoja 3: Aportes y balance ──
   const apRows = [['Mes','Ingreso Martu','Ingreso Nacho','Ingreso conjunto','% Martu','% Nacho','Pagó Martu','Pagó Nacho','Esp. Martu','Esp. Nacho','Dif. Martu','Dif. Nacho','Quién transfiere','Monto transferencia']];
   const mesesConDatos = [...new Set(state.gastos.map(g=>g.mes))];
@@ -1072,7 +1072,7 @@ function exportarExcel() {
   const wsAp = XLSX.utils.aoa_to_sheet(apRows);
   wsAp['!cols'] = [10,13,13,14,8,8,12,12,12,12,11,11,16,14].map(w=>({wch:w}));
   XLSX.utils.book_append_sheet(wb, wsAp, 'Aportes');
-
+ 
   // ── Hoja 4: Ingresos detallados ──
   const ingRows = [['Mes','Persona','Fuente','Monto ($)']];
   Object.keys(state.ingresos).forEach(mes=>{
@@ -1083,19 +1083,19 @@ function exportarExcel() {
   const wsIng = XLSX.utils.aoa_to_sheet(ingRows);
   wsIng['!cols'] = [10,8,18,12].map(w=>({wch:w}));
   XLSX.utils.book_append_sheet(wb, wsIng, 'Ingresos');
-
+ 
   // ── Hoja 5: Gastos fijos ──
   const fijosRows = [['Persona','Gasto fijo','Monto mensual ($)']];
   ['Martu','Nacho'].forEach(p=>(state.fijos[p]||[]).forEach(r=>fijosRows.push([p,r.fuente,fmtN(r.monto)])));
   const wsFijos = XLSX.utils.aoa_to_sheet(fijosRows);
   wsFijos['!cols'] = [8,18,14].map(w=>({wch:w}));
   XLSX.utils.book_append_sheet(wb, wsFijos, 'Gastos fijos');
-
+ 
   const fecha = new Date().toISOString().slice(0,10);
   XLSX.writeFile(wb, `Gastos_Saladillo_${fecha}.xlsx`);
   showToast('✓ Excel descargado');
 }
-
+ 
 function styleSheet(ws, nrows, ncols) {
   // Bold header row
   for(let c=0; c<ncols; c++) {
@@ -1103,7 +1103,7 @@ function styleSheet(ws, nrows, ncols) {
     if(ws[addr]) ws[addr].s = {font:{bold:true}};
   }
 }
-
+ 
 function exportarCSV() {
   const headers = ['Fecha','Mes','Categoría','Subcategoría','Monto','Forma de pago','Quién pagó','Observaciones'];
   const rows = state.gastos.map(g =>
@@ -1117,10 +1117,12 @@ function exportarCSV() {
   a.click(); URL.revokeObjectURL(url);
   showToast('✓ CSV descargado');
 }
-
+ 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
 document.getElementById('f-fecha').value=new Date().toISOString().split('T')[0];
 renderPanel();
+// Sync from Google Sheets on load
+window.addEventListener('load', () => { syncFromSheets(); });
 </script>
 </body>
 </html>
