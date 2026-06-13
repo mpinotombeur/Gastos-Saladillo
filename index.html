@@ -217,55 +217,6 @@
       <div id="cat-rows"></div>
     </div>
  
-    <!-- CARGAR -->
-    <div class="screen" id="screen-cargar">
-      <div class="section-hdr" style="margin-top:4px">Nuevo gasto</div>
-      <div class="form-group">
-        <label class="form-label">Fecha <span class="req">*</span></label>
-        <input type="date" id="f-fecha">
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Categoría <span class="req">*</span></label>
-          <select id="f-cat" onchange="onCatChange('f-cat','f-subcat')">
-            <option value="">Elegí...</option>
-            <option>Vivienda</option><option>Comida</option>
-            <option>Movilidad</option><option>Recreación</option><option>Malta</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Subcategoría <span class="req">*</span></label>
-          <select id="f-subcat"><option value="">— primero categoría —</option></select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Monto ($) <span class="req">*</span></label>
-        <input type="number" id="f-monto" placeholder="0" min="0" step="1">
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Forma de pago <span class="req">*</span></label>
-          <select id="f-pago">
-            <option value="">Elegí...</option>
-            <option>MP</option><option>Efectivo</option>
-            <option>T. crédito</option><option>T. débito</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Quién pagó <span class="req">*</span></label>
-          <select id="f-quien">
-            <option value="">Elegí...</option>
-            <option>Martu</option><option>Nacho</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Observaciones</label>
-        <textarea id="f-obs" placeholder="Descripción opcional..."></textarea>
-      </div>
-      <button class="btn-primary" onclick="guardarGasto()">Guardar gasto</button>
-    </div>
- 
     <!-- REGISTRO -->
     <div class="screen" id="screen-registro">
       <div class="filter-bar" id="reg-filters"></div>
@@ -310,6 +261,9 @@
           🔄 Sincronizar con Google Sheets
         </button>
         <div id="sync-status" style="font-size:12px;margin-top:8px;text-align:center"></div>
+        <button onclick="abrirPlanilla()" style="margin-top:10px;width:100%;padding:11px;background:var(--bg3);color:var(--text2);border:1px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font);font-size:13px;cursor:pointer;">
+          📊 Abrir planilla en Google Sheets
+        </button>
       </div>
  
       <div class="cfg-section">
@@ -417,11 +371,11 @@
     <div class="nav-item active" id="nav-panel" onclick="showScreen('panel')">
       <div class="nav-icon">⊞</div><div class="nav-label">Panel</div>
     </div>
-    <div class="nav-item" id="nav-cargar" onclick="showScreen('cargar')">
-      <div class="nav-icon">＋</div><div class="nav-label">Cargar</div>
-    </div>
     <div class="nav-item" id="nav-registro" onclick="showScreen('registro')">
       <div class="nav-icon">≡</div><div class="nav-label">Registro</div>
+    </div>
+    <div class="nav-item" id="nav-planilla" onclick="abrirPlanilla()">
+      <div class="nav-icon">📊</div><div class="nav-label">Planilla</div>
     </div>
     <div class="nav-item" id="nav-aportes" onclick="showScreen('aportes')">
       <div class="nav-icon">⚖</div><div class="nav-label">Aportes</div>
@@ -1118,11 +1072,36 @@ function exportarCSV() {
   showToast('✓ CSV descargado');
 }
  
+// ─── PLANILLA LINK ────────────────────────────────────────────────────────────
+const SHEETS_EDIT_URL = 'https://docs.google.com/spreadsheets/d/1IA7vIEqaQnN4n8JGj4-UOwJsynWvNUq8zGfHab4zmZU/edit';
+function abrirPlanilla() { window.open(SHEETS_EDIT_URL, '_blank'); }
+ 
+// ─── EXTEND BUDGET TO ALL MONTHS ─────────────────────────────────────────────
+// For months without a defined budget, auto-generate one based on Mayo as reference
+(function extendBudget() {
+  const ref = state.budget['Mayo'] || {};
+  const missing = ['Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  missing.forEach(m => {
+    if (!state.budget[m]) {
+      state.budget[m] = JSON.parse(JSON.stringify(ref));
+    }
+  });
+  // Also extend DEFAULT_BUDGET for future resets
+  missing.forEach(m => {
+    if (!DEFAULT_BUDGET[m]) DEFAULT_BUDGET[m] = JSON.parse(JSON.stringify(DEFAULT_BUDGET['Mayo'] || {}));
+  });
+  // Extend ingresos too
+  missing.forEach(m => {
+    if (!state.ingresos[m]) state.ingresos[m] = JSON.parse(JSON.stringify(state.ingresos['Mayo'] || {Martu:[],Nacho:[]}));
+    if (!DEFAULT_INGRESOS[m]) DEFAULT_INGRESOS[m] = JSON.parse(JSON.stringify(DEFAULT_INGRESOS['Mayo'] || {Martu:[],Nacho:[]}));
+  });
+})();
+ 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
-document.getElementById('f-fecha').value=new Date().toISOString().split('T')[0];
 renderPanel();
 // Sync from Google Sheets on load
 window.addEventListener('load', () => { syncFromSheets(); });
 </script>
 </body>
 </html>
+ 
