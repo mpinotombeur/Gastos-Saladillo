@@ -217,6 +217,55 @@
       <div id="cat-rows"></div>
     </div>
 
+    <!-- CARGAR -->
+    <div class="screen" id="screen-cargar">
+      <div class="section-hdr" style="margin-top:4px">Nuevo gasto</div>
+      <div class="form-group">
+        <label class="form-label">Fecha <span class="req">*</span></label>
+        <input type="date" id="f-fecha">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Categoría <span class="req">*</span></label>
+          <select id="f-cat" onchange="onCatChange('f-cat','f-subcat')">
+            <option value="">Elegí...</option>
+            <option>Vivienda</option><option>Comida</option>
+            <option>Movilidad</option><option>Recreación</option><option>Malta</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Subcategoría <span class="req">*</span></label>
+          <select id="f-subcat"><option value="">— primero categoría —</option></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Monto ($) <span class="req">*</span></label>
+        <input type="number" id="f-monto" placeholder="0" min="0" step="1">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Forma de pago <span class="req">*</span></label>
+          <select id="f-pago">
+            <option value="">Elegí...</option>
+            <option>MP</option><option>Efectivo</option>
+            <option>T. crédito</option><option>T. débito</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Quién pagó <span class="req">*</span></label>
+          <select id="f-quien">
+            <option value="">Elegí...</option>
+            <option>Martu</option><option>Nacho</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Observaciones</label>
+        <textarea id="f-obs" placeholder="Descripción opcional..."></textarea>
+      </div>
+      <button class="btn-primary" id="guardar-btn" onclick="guardarGasto()">Guardar gasto</button>
+    </div>
+
     <!-- REGISTRO -->
     <div class="screen" id="screen-registro">
       <div class="filter-bar" id="reg-filters"></div>
@@ -371,11 +420,11 @@
     <div class="nav-item active" id="nav-panel" onclick="showScreen('panel')">
       <div class="nav-icon">⊞</div><div class="nav-label">Panel</div>
     </div>
+    <div class="nav-item" id="nav-cargar" onclick="showScreen('cargar')">
+      <div class="nav-icon">＋</div><div class="nav-label">Cargar</div>
+    </div>
     <div class="nav-item" id="nav-registro" onclick="showScreen('registro')">
       <div class="nav-icon">≡</div><div class="nav-label">Registro</div>
-    </div>
-    <div class="nav-item" id="nav-planilla" onclick="abrirPlanilla()">
-      <div class="nav-icon">📊</div><div class="nav-label">Planilla</div>
     </div>
     <div class="nav-item" id="nav-aportes" onclick="showScreen('aportes')">
       <div class="nav-icon">⚖</div><div class="nav-label">Aportes</div>
@@ -650,18 +699,41 @@ function onCatChange(catId,subId,pre){
   sel.innerHTML=''; if(!cat){sel.innerHTML='<option value="">— primero categoría —</option>';return;}
   (SUBCATS[cat]||[]).forEach(s=>{const o=document.createElement('option');o.value=o.textContent=s;if(s===pre)o.selected=true;sel.appendChild(o);});
 }
-function guardarGasto(){
+async function guardarGasto(){
   const fecha=document.getElementById('f-fecha').value, cat=document.getElementById('f-cat').value;
   const sub=document.getElementById('f-subcat').value, monto=parseFloat(document.getElementById('f-monto').value);
   const pago=document.getElementById('f-pago').value, quien=document.getElementById('f-quien').value;
   const obs=document.getElementById('f-obs').value.trim();
   if(!fecha||!cat||!sub||!monto||!pago||!quien||monto<=0){showToast('⚠ Completá todos los campos',true);return;}
+
   const mes=MONTHS[new Date(fecha+'T12:00:00').getMonth()];
-  state.gastos.push({id:state.nextId++,fecha,mes,cat,sub,monto:Math.round(monto),pago,quien,obs});
-  saveState();
-  ['f-fecha','f-cat','f-monto','f-pago','f-quien','f-obs'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('f-subcat').innerHTML='<option value="">— primero categoría —</option>';
-  showToast('✓ Gasto guardado en '+mes);
+  const btn=document.getElementById('guardar-btn');
+  btn.disabled=true; btn.textContent='⏳ Guardando...';
+
+  // Convert fecha YYYY-MM-DD to DD/MM/YYYY for the sheet
+  const [y,m,d]=fecha.split('-');
+  const fechaSheet=`${d}/${m}/${y}`;
+
+  try {
+    const res = await fetch(SHEETS_URL, {
+      method: 'POST',
+      body: JSON.stringify({fecha:fechaSheet, cat, sub, monto:Math.round(monto), pago, quien, obs}),
+    });
+    // Apps Script POST often returns opaque/CORS-limited responses; treat any non-network-error as success
+    state.gastos.push({id:state.nextId++,fecha,mes,cat,sub,monto:Math.round(monto),pago,quien,obs});
+    saveState();
+    ['f-fecha','f-cat','f-monto','f-pago','f-quien','f-obs'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('f-subcat').innerHTML='<option value="">— primero categoría —</option>';
+    showToast('✓ Gasto guardado en '+mes+' (sincronizado con la planilla)');
+  } catch(err) {
+    // Network failure — still save locally so it's not lost, but warn the user
+    state.gastos.push({id:state.nextId++,fecha,mes,cat,sub,monto:Math.round(monto),pago,quien,obs});
+    saveState();
+    showToast('⚠ Guardado local — no se pudo sincronizar con Sheets', true);
+  } finally {
+    btn.disabled=false; btn.textContent='Guardar gasto';
+    if(currentScreen==='panel') renderPanel();
+  }
 }
 
 // ─── REGISTRO ────────────────────────────────────────────────────────────────
@@ -1098,6 +1170,7 @@ function abrirPlanilla() { window.open(SHEETS_EDIT_URL, '_blank'); }
 })();
 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
+document.getElementById('f-fecha').value = new Date().toISOString().split('T')[0];
 renderPanel();
 // Sync from Google Sheets on load
 window.addEventListener('load', () => { syncFromSheets(); });
