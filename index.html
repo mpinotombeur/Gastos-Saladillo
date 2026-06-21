@@ -718,9 +718,11 @@ async function guardarGasto(){
   try {
     const res = await fetch(SHEETS_URL, {
       method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify({fecha:fechaSheet, cat, sub, monto:Math.round(monto), pago, quien, obs}),
     });
-    // Apps Script POST often returns opaque/CORS-limited responses; treat any non-network-error as success
+    const result = await res.json().catch(()=>null);
+    if (result && result.status === 'error') throw new Error(result.message || 'Error desconocido');
     state.gastos.push({id:state.nextId++,fecha,mes,cat,sub,monto:Math.round(monto),pago,quien,obs});
     saveState();
     ['f-fecha','f-cat','f-monto','f-pago','f-quien','f-obs'].forEach(id=>document.getElementById(id).value='');
